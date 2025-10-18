@@ -2,7 +2,7 @@
 <html lang="en" class="scroll-smooth" data-theme-active="default">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Ameliia Kovalenko – Strategy & AI Consultant | Driving Digital Transformation & Innovation Across Banking & Pharma | Ex-EY, Danske Bank" />
   <title>Interactive CV - Ameliia Kovalenko</title>
   <script src="https://cdn.tailwindcss.com/"></script>
@@ -13,33 +13,46 @@
       --color-primary: #003E6B;
       --color-accent: #36A8A4;
       --color-accent-light: #E6F7F7;
-      --color-accent-translucent: rgba(54, 168, 164, 0.9);
       --color-header-gradient-from: #003E6B;
       --color-header-gradient-to: #36A8A4;
+
+      /* Skill bar palette (pastel blue) */
+      --expert: #5B9BD5;
+      --advanced: #A7C7E7;
+      --proficient: #CFE9FF;
     }
-    body { font-family: 'Poppins', sans-serif; }
+
+    body { font-family: 'Poppins', sans-serif; color:#1f2937; }
     .color-primary { color: var(--color-primary); }
-    .color-accent { color: var(--color-accent); }
-    .bg-accent-light { background-color: var(--color-accent-light); }
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      top: 1.25rem;
-      left: -0.5rem;
-      width: 1rem;
-      height: 1rem;
-      background-color: var(--color-primary);
-      border-radius: 9999px;
-      border: 4px solid #f7f9fb;
-      z-index: 10;
+    .section-title { position:relative; display:inline-block; padding-bottom:.25rem; }
+    .section-title::after {
+      content:''; position:absolute; left:50%; transform:translateX(-50%);
+      bottom:-.5rem; width:4rem; height:3px;
+      background: linear-gradient(90deg,var(--color-header-gradient-from),var(--color-header-gradient-to));
+      border-radius:9999px;
     }
-    .accordion-content { overflow: hidden; max-height: 0; transition: max-height 0.3s ease-out; }
-    @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
-    .fade-in { animation: fadeIn 1s ease-in forwards; }
+
+    /* Timeline markers */
+    .timeline-item::before {
+      content:''; position:absolute; top:1.25rem; left:-0.5rem; width:1rem; height:1rem;
+      background-color: var(--color-primary); border-radius:9999px; border:4px solid #f7f9fb; z-index:10;
+    }
+    .accordion-content { overflow:hidden; max-height:0; transition:max-height .3s ease; }
+    .rotatable { transition: transform .25s ease; }
+
+    /* Fade-in */
+    @keyframes fadeIn { from { opacity:0; transform:translateY(6px);} to { opacity:1; transform:translateY(0);} }
+    .fade-in { opacity:0; animation: fadeIn .8s ease .05s forwards; }
+
+    /* Skill bar base */
+    .meter { width:100%; height:0.5rem; background:#e5e7eb; border-radius:9999px; overflow:hidden; }
+    .meter > span { display:block; height:100%; border-radius:9999px; }
+
+    /* Simple hover polish */
+    .hover-card:hover { background:#f8fafc; }
   </style>
 </head>
-
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-gray-100">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
     <!-- Header -->
@@ -48,22 +61,24 @@
         Ameliia Kovalenko
       </h1>
       <h2 class="mt-2 text-xl md:text-2xl font-medium text-gray-600 tracking-wide">
-        Strategy &amp; AI Consultant | Driving Digital Transformation &amp; Innovation Across Banking &amp; Pharma | Ex-EY, Danske Bank
+        Strategy &amp; AI Consultant&nbsp;|&nbsp;Driving Digital Transformation &amp; Innovation Across Banking &amp; Pharma&nbsp;|&nbsp;Ex-EY, Danske Bank
       </h2>
+      <div class="mt-6 flex justify-center gap-4">
+        <a href="mailto:amelia.kovalenko@gmail.com" class="inline-block px-6 py-2 rounded-full bg-[var(--color-primary)] text-white shadow hover:bg-[var(--color-accent)] transition">Contact Me</a>
+        <a href="https://www.linkedin.com/in/ameliakovalenko/" target="_blank" class="inline-block px-6 py-2 rounded-full border border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-accent-light)] transition">LinkedIn</a>
+      </div>
     </header>
 
-    <!-- Professional Summary -->
-    <section id="summary" class="mb-20 fade-in">
-      <h3 class="text-3xl font-bold text-center mb-8">Professional Summary</h3>
-
+    <!-- Summary -->
+    <section id="summary" class="mt-24 mb-24 fade-in">
+      <h3 class="section-title text-3xl font-bold text-center mb-10">Professional Summary</h3>
       <div class="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-xl">
-        <div class="flex items-start mb-4">
+        <div class="flex items-start">
           <span class="text-sky-500 mr-3 mt-1" aria-hidden="true">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
           </span>
-
           <div class="space-y-5 leading-relaxed text-gray-700 text-left">
             <p class="text-lg">I help organizations <strong>turn strategy into results</strong> and <strong>complexity into clarity</strong>.</p>
             <p>With experience across <strong>banking, consulting, and pharma</strong>, I specialize in driving <strong>digital transformation</strong> and <strong>AI-enabled innovation</strong> that deliver measurable business value.</p>
@@ -71,38 +86,36 @@
             <p>Passionate about shaping the next wave of <strong>AI-driven transformation</strong>, I bring structure, analytical insight, and cross-functional alignment to every engagement.</p>
           </div>
         </div>
-
-        <p class="text-center mt-8 text-base text-gray-500 italic">
+        <p class="text-center mt-8 text-base text-gray-600 italic">
           🎯 <strong>Focus areas:</strong> Digital Transformation · AI Strategy &amp; Enablement · Strategic Program Leadership · Stakeholder Management · Process Optimization
         </p>
       </div>
     </section>
 
-    <!-- Career Timeline -->
-    <section id="timeline" class="mb-20 fade-in">
-      <h3 class="text-3xl font-bold text-center mb-8">Career Timeline</h3>
+    <!-- Timeline -->
+    <section id="timeline" class="mt-24 mb-24 fade-in">
+      <h3 class="section-title text-3xl font-bold text-center mb-10">Career Timeline</h3>
+      <div class="mt-6 max-w-3xl mx-auto border-l-2 border-[var(--color-primary)] pl-8 space-y-10">
 
-      <div class="mt-12 max-w-3xl mx-auto border-l-2 border-[var(--color-primary)] pl-8 space-y-10">
-
-        <!-- Novo Nordisk -->
+        <!-- Novo (open by default) -->
         <div class="timeline-item relative">
-          <div class="timeline-header cursor-pointer p-4 rounded-lg bg-white shadow-md">
+          <div class="timeline-header cursor-pointer p-4 rounded-lg bg-white shadow-md hover-card">
             <div class="flex justify-between items-center">
               <div>
                 <h4 class="text-xl font-bold">Novo Nordisk</h4>
                 <p class="text-sm text-gray-500">October 2024 – Present | 1 Year</p>
+                <p class="text-sm font-semibold mt-1">Advanced Digital Business Consultant</p>
               </div>
-              <svg class="w-6 h-6 color-primary transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+              <svg class="w-6 h-6 color-primary rotatable" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </div>
           </div>
           <div class="accordion-content pl-4 mt-2">
-            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 space-y-4">
-              <h5 class="text-lg font-bold color-primary">Advanced Digital Business Consultant</h5>
-              <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-700">
-                <li>Partnered with senior stakeholders to shape digital strategy across External Supply, aligning business, IT, and innovation teams effectively.</li>
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 space-y-3">
+              <p>Partnered with senior stakeholders to shape digital strategy across External Supply, aligning business, IT, and innovation teams.</p>
+              <ul class="list-disc pl-5 space-y-2">
                 <li>Defined platform needs and secured optimal vendor through collaboration.</li>
                 <li>Prepared SteerCo materials highlighting ROI, progress, and risks.</li>
-                <li>Initiated migration of a strategic use case, achieving double-digit cost savings and 40% faster release.</li>
+                <li>Initiated migration of a strategic use case, achieving <strong>&gt;40% faster batch release</strong> and <strong>double-digit cost savings</strong>.</li>
                 <li>Refined GenAI use case scope to focus resources on high-value priorities.</li>
               </ul>
             </div>
@@ -111,47 +124,49 @@
 
         <!-- EY -->
         <div class="timeline-item relative">
-          <div class="timeline-header cursor-pointer p-4 rounded-lg bg-white shadow-md">
+          <div class="timeline-header cursor-pointer p-4 rounded-lg bg-white shadow-md hover-card">
             <div class="flex justify-between items-center">
               <div>
                 <h4 class="text-xl font-bold">Ernst &amp; Young (EY)</h4>
                 <p class="text-sm text-gray-500">August 2022 – October 2024 | 2 Years 3 Months</p>
+                <p class="text-sm font-semibold mt-1">Senior Consultant, Financial Services Transformation</p>
               </div>
-              <svg class="w-6 h-6 color-primary transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+              <svg class="w-6 h-6 color-primary rotatable" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </div>
           </div>
           <div class="accordion-content pl-4 mt-2">
-            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 space-y-4">
-              <h5 class="text-lg font-bold color-primary">Senior Consultant, Financial Services Transformation</h5>
-              <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-700">
-                <li>Led digital and operational transformation initiatives across Nordic financial institutions.</li>
-                <li>Developed 15+ client proposals addressing strategic and regulatory objectives.</li>
-                <li>Co-organized the first Nordic GenAI Hackathon, translating business needs into measurable AI outcomes.</li>
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 space-y-3">
+              <p>Led digital and operational transformation initiatives across Nordic financial institutions.</p>
+              <ul class="list-disc pl-5 space-y-2">
+                <li>Managed programs aligning business, data, and IT strategies with compliance frameworks.</li>
+                <li>Developed <strong>15+ client proposals</strong> addressing strategic and regulatory objectives.</li>
+                <li>Co-organized the first Nordic <strong>GenAI</strong> Hackathon, translating needs into measurable outcomes.</li>
                 <li>Facilitated executive workshops and SteerCo briefings enabling faster decision-making.</li>
               </ul>
             </div>
           </div>
         </div>
 
-        <!-- Danske Bank -->
+        <!-- Danske -->
         <div class="timeline-item relative">
-          <div class="timeline-header cursor-pointer p-4 rounded-lg bg-white shadow-md">
+          <div class="timeline-header cursor-pointer p-4 rounded-lg bg-white shadow-md hover-card">
             <div class="flex justify-between items-center">
               <div>
                 <h4 class="text-xl font-bold">Danske Bank</h4>
                 <p class="text-sm text-gray-500">September 2019 – August 2022 | 3 Years</p>
+                <p class="text-sm font-semibold mt-1">Associate Consultant</p>
               </div>
-              <svg class="w-6 h-6 color-primary transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+              <svg class="w-6 h-6 color-primary rotatable" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </div>
           </div>
           <div class="accordion-content pl-4 mt-2">
-            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 space-y-4">
-              <h5 class="text-lg font-bold color-primary">Associate Consultant</h5>
-              <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-700">
-                <li>Delivered mobile banking nudging initiative improving customer satisfaction (4.5/5) and reducing advisor time by 20%.</li>
-                <li>Streamlined KYC, real estate, and debt collection processes to improve compliance and efficiency.</li>
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 space-y-3">
+              <p>Drove process optimization and customer journey improvements across retail and corporate banking units.</p>
+              <ul class="list-disc pl-5 space-y-2">
+                <li>Mobile banking nudging: CSAT to <strong>4.5/5</strong>, advisor time down <strong>20%</strong>.</li>
+                <li>Streamlined KYC, real estate, and debt collection processes.</li>
                 <li>Supported automation initiatives aligned with digital strategy goals.</li>
-                <li>Designed training and governance materials improving process maturity and collaboration.</li>
+                <li>Designed training and governance materials improving maturity.</li>
               </ul>
             </div>
           </div>
@@ -159,96 +174,329 @@
 
         <!-- Telia -->
         <div class="timeline-item relative">
-          <div class="timeline-header cursor-pointer p-4 rounded-lg bg-white shadow-md">
+          <div class="timeline-header cursor-pointer p-4 rounded-lg bg-white shadow-md hover-card">
             <div class="flex justify-between items-center">
               <div>
                 <h4 class="text-xl font-bold">Telia</h4>
                 <p class="text-sm text-gray-500">January 2019 – September 2019 | 9 Months</p>
+                <p class="text-sm font-semibold mt-1">BPM Student Worker &amp; Interim Scrum Master</p>
               </div>
-              <svg class="w-6 h-6 color-primary transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+              <svg class="w-6 h-6 color-primary rotatable" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </div>
           </div>
           <div class="accordion-content pl-4 mt-2">
-            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 space-y-4">
-              <h5 class="text-lg font-bold color-primary">BPM Student Worker &amp; Interim Scrum Master</h5>
-              <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-700">
-                <li>Delivered BPM lifecycle initiatives driving measurable operational improvements.</li>
-                <li>Defined and tested automation workflows using IBM BPM to enhance efficiency.</li>
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 space-y-3">
+              <p>Supported process improvement and automation within enterprise BPM projects.</p>
+              <ul class="list-disc pl-5 space-y-2">
+                <li>Delivered BPM lifecycle initiatives from discovery to deployment.</li>
+                <li>Defined and tested automation workflows using <strong>IBM BPM</strong>.</li>
                 <li>Supported Agile delivery and managed team releases via JIRA.</li>
-                <li>Strengthened documentation and collaboration for long-term sustainability.</li>
+                <li>Strengthened documentation and knowledge transfer.</li>
               </ul>
             </div>
           </div>
         </div>
+
       </div>
     </section>
 
     <!-- Skills -->
-    <section id="skills" class="mb-20 fade-in">
-      <h3 class="text-3xl font-bold text-center mb-8">Core Competencies</h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+    <section id="skills" class="mt-24 mb-24 fade-in">
+      <h3 class="section-title text-3xl font-bold text-center mb-10">Core Competencies &amp; Skills</h3>
+
+      <!-- Proficiency key -->
+      <div class="max-w-6xl mx-auto bg-white p-4 rounded-lg shadow-inner">
+        <h4 class="text-sm font-semibold mb-2 color-primary">Proficiency Key:</h4>
+        <div class="flex rounded overflow-hidden text-black text-xs font-bold text-center">
+          <div style="background:var(--expert); width:33.33%;" class="p-1">Expert</div>
+          <div style="background:var(--advanced); width:33.33%;" class="p-1">Advanced</div>
+          <div style="background:var(--proficient); width:33.33%;" class="p-1">Proficient</div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto mt-10">
+        <!-- Leadership -->
         <div class="bg-white p-6 rounded-2xl shadow-lg">
           <h4 class="text-xl font-bold text-center mb-4">Leadership &amp; Soft Skills</h4>
-          <ul class="list-disc pl-6 space-y-2">
-            <li>Strategic Planning &amp; Delivery</li>
-            <li>Stakeholder Management</li>
-            <li>Executive Communication &amp; Reporting</li>
-            <li>Change Leadership</li>
-            <li>Cross-functional Collaboration</li>
-          </ul>
+
+          <!-- Stakeholder Management – Expert -->
+          <div class="mb-4">
+            <div class="flex justify-between text-sm mb-1">
+              <span>Stakeholder Management</span><span>Expert</span>
+            </div>
+            <div class="meter"><span style="width:100%; background:var(--expert)"></span></div>
+          </div>
+
+          <!-- Strategic Planning & Delivery – Advanced -->
+          <div class="mb-4">
+            <div class="flex justify-between text-sm mb-1">
+              <span>Strategic Planning &amp; Delivery</span><span>Advanced</span>
+            </div>
+            <div class="meter"><span style="width:85%; background:var(--advanced)"></span></div>
+          </div>
+
+          <!-- Executive Communication & Reporting – Advanced -->
+          <div class="mb-4">
+            <div class="flex justify-between text-sm mb-1">
+              <span>Executive Communication &amp; Reporting</span><span>Advanced</span>
+            </div>
+            <div class="meter"><span style="width:85%; background:var(--advanced)"></span></div>
+          </div>
+
+          <!-- Change Leadership – Advanced -->
+          <div class="mb-4">
+            <div class="flex justify-between text-sm mb-1">
+              <span>Change Leadership</span><span>Advanced</span>
+            </div>
+            <div class="meter"><span style="width:85%; background:var(--advanced)"></span></div>
+          </div>
+
+          <!-- Cross-functional Collaboration – Expert -->
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <span>Cross-functional Collaboration</span><span>Expert</span>
+            </div>
+            <div class="meter"><span style="width:100%; background:var(--expert)"></span></div>
+          </div>
         </div>
+
+        <!-- Technical -->
         <div class="bg-white p-6 rounded-2xl shadow-lg">
           <h4 class="text-xl font-bold text-center mb-4">Technical &amp; Tools</h4>
-          <ul class="list-disc pl-6 space-y-2">
-            <li>Digital Transformation &amp; Innovation Tools</li>
-            <li>GenAI Use Case Identification &amp; Implementation</li>
-            <li>Strategic Program Management (Prince2, SAFe, Agile)</li>
-            <li>Process Design &amp; Optimization</li>
-            <li>Data-Driven Decision-Making &amp; Insights</li>
-          </ul>
+
+          <!-- GenAI Use Case – Advanced -->
+          <div class="mb-4">
+            <div class="flex justify-between text-sm mb-1">
+              <span>GenAI Use Case Identification &amp; Implementation</span><span>Advanced</span>
+            </div>
+            <div class="meter"><span style="width:85%; background:var(--advanced)"></span></div>
+          </div>
+
+          <!-- Digital Transformation & Innovation Tools – Advanced -->
+          <div class="mb-4">
+            <div class="flex justify-between text-sm mb-1">
+              <span>Digital Transformation &amp; Innovation Tools</span><span>Advanced</span>
+            </div>
+            <div class="meter"><span style="width:85%; background:var(--advanced)"></span></div>
+          </div>
+
+          <!-- Strategic Program Mgmt – Advanced -->
+          <div class="mb-4">
+            <div class="flex justify-between text-sm mb-1">
+              <span>Strategic Program Management (Prince2, SAFe, Agile)</span><span>Advanced</span>
+            </div>
+            <div class="meter"><span style="width:85%; background:var(--advanced)"></span></div>
+          </div>
+
+          <!-- Process Design & Optimization – Advanced -->
+          <div class="mb-4">
+            <div class="flex justify-between text-sm mb-1">
+              <span>Process Design &amp; Optimization</span><span>Advanced</span>
+            </div>
+            <div class="meter"><span style="width:85%; background:var(--advanced)"></span></div>
+          </div>
+
+          <!-- Data-Driven Decision-Making – Advanced -->
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <span>Data-Driven Decision-Making &amp; Insights</span><span>Advanced</span>
+            </div>
+            <div class="meter"><span style="width:85%; background:var(--advanced)"></span></div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Projects -->
-    <section id="projects" class="mb-20 fade-in">
-      <h3 class="text-3xl font-bold text-center mb-8">Project Portfolio</h3>
+    <section id="projects" class="mt-24 mb-24 fade-in">
+      <h3 class="section-title text-3xl font-bold text-center mb-10">Project Portfolio</h3>
+
       <div class="space-y-6 max-w-4xl mx-auto">
 
+        <!-- GenAI Hackathon (accordion) -->
         <div class="bg-white rounded-xl shadow-lg border">
-          <div class="accordion-header p-5 flex justify-between items-center">
+          <div class="accordion-header p-5 flex justify-between items-center cursor-pointer hover-card">
             <h4 class="text-xl font-bold color-primary">Nordic GenAI Hackathon &amp; Use Case Library – EY</h4>
-            <svg class="w-6 h-6 color-primary transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            <svg class="w-6 h-6 color-primary rotatable" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </div>
           <div class="accordion-content">
-            <p class="p-5 border-t italic">Co-organized the first Nordic event connecting business and tech to shape customer challenges solved with GenAI. Built a central library, prioritized initiatives, and captured best practices driving measurable impact across FSO.</p>
+            <p class="p-5 border-t italic">Co-organized the first Nordic event connecting business and tech to shape GenAI solutions. Built a central use-case library, prioritized initiatives, and captured best practices across FSO.</p>
             <div class="p-5 pt-0">
               🎥 <a href="https://www.linkedin.com/feed/update/urn:li:activity:7251626031080439808/" target="_blank" class="text-sky-600 hover:underline">Watch highlight video on LinkedIn</a>
             </div>
           </div>
         </div>
 
-        <div class="bg-white rounded-xl shadow-lg border p-5">
-          <h4 class="text-xl font-bold color-primary mb-2">External Supply Digital Platform – Novo Nordisk</h4>
-          <p class="italic">Led vendor sourcing and structured pilot delivering faster batch releases and double-digit subscription savings.</p>
+        <!-- External Supply Digital Platform -->
+        <div class="bg-white rounded-xl shadow-lg border">
+          <div class="accordion-header p-5 flex justify-between items-center cursor-pointer hover-card">
+            <h4 class="text-xl font-bold color-primary">External Supply Digital Platform – Novo Nordisk</h4>
+            <svg class="w-6 h-6 color-primary rotatable" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </div>
+          <div class="accordion-content">
+            <p class="p-5 border-t italic">Vendor alignment and pilot structure delivering &gt;40% faster batch releases and double-digit subscription savings.</p>
+          </div>
         </div>
 
-        <div class="bg-white rounded-xl shadow-lg border p-5">
-          <h4 class="text-xl font-bold color-primary mb-2">Digital Nudging Mobile Solution – Danske Bank</h4>
-          <p class="italic">Improved customer satisfaction (4.5/5) and reduced advisor workload by 20% through design-led digital nudging.</p>
+        <!-- Digital Nudging -->
+        <div class="bg-white rounded-xl shadow-lg border">
+          <div class="accordion-header p-5 flex justify-between items-center cursor-pointer hover-card">
+            <h4 class="text-xl font-bold color-primary">Digital Nudging Mobile Solution – Danske Bank</h4>
+            <svg class="w-6 h-6 color-primary rotatable" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </div>
+          <div class="accordion-content">
+            <p class="p-5 border-t italic">Improved customer satisfaction to 4.5/5 and reduced advisor workload by 20% in the mobile banking journey.</p>
+          </div>
+        </div>
+
+        <!-- Remediation Programmes -->
+        <div class="bg-white rounded-xl shadow-lg border">
+          <div class="accordion-header p-5 flex justify-between items-center cursor-pointer hover-card">
+            <h4 class="text-xl font-bold color-primary">Remediation Programmes – EY</h4>
+            <svg class="w-6 h-6 color-primary rotatable" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </div>
+          <div class="accordion-content">
+            <p class="p-5 border-t italic">Remediated initiatives across collections, early-warning, default definitions, and forbearance; delivered executive recommendations for targeted remediation.</p>
+          </div>
+        </div>
+
+        <!-- Data Strategy & Customer Maturity -->
+        <div class="bg-white rounded-xl shadow-lg border">
+          <div class="accordion-header p-5 flex justify-between items-center cursor-pointer hover-card">
+            <h4 class="text-xl font-bold color-primary">Data Strategy &amp; Customer Maturity – EY</h4>
+            <svg class="w-6 h-6 color-primary rotatable" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </div>
+          <div class="accordion-content">
+            <p class="p-5 border-t italic">Assessed customer data maturity for a Nordic insurer, benchmarked competitors, and proposed actionable initiatives for data-driven decision-making.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Recognition -->
-    <section id="recognition" class="mb-20 fade-in">
-      <h3 class="text-3xl font-bold text-center mb-8">Recognition &amp; Testimonials</h3>
+    <!-- Recognition (4 quotes) -->
+    <section id="recognition" class="mt-24 mb-24 fade-in">
+      <h3 class="section-title text-3xl font-bold text-center mb-10">Recognition &amp; Testimonials</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-
         <div class="bg-white rounded-2xl shadow p-6">
           <p class="italic mb-3">“Ameliia creates structure in complex environments and engages even the most difficult stakeholders toward shared goals. A rare mix of sharpness, humility, and collaboration.”</p>
           <p class="text-sm text-gray-500 text-right">– Manager Feedback, Danske Bank</p>
         </div>
-
         <div class="bg-white rounded-2xl shadow p-6">
-          <p class="italic mb-3">“She absorbs information effortlessly and turns it into insight. A confident presenter who bridges IT and business
+          <p class="italic mb-3">“Working with Ameliia was inspiring — her clarity and structured approach made collaboration easy even in high-pressure phases. She quickly understood complex data needs and connected business, tech, and vendor teams seamlessly.”</p>
+          <p class="text-sm text-gray-500 text-right">– Data Scientist Feedback, Novo Nordisk</p>
+        </div>
+        <div class="bg-white rounded-2xl shadow p-6">
+          <p class="italic mb-3">“Her attention to detail and speed were exceptional. Ameliia drove alignment across global teams with clarity, agility, and precision — raising the bar for the entire project.”</p>
+          <p class="text-sm text-gray-500 text-right">– Stakeholder Feedback, Novo Nordisk</p>
+        </div>
+        <div class="bg-white rounded-2xl shadow p-6">
+          <p class="italic mb-3">“She navigates complex conversations with confidence and empathy. Within months, she built trust and became a go-to partner for strategic transformation.”</p>
+          <p class="text-sm text-gray-500 text-right">– Leadership Feedback, Novo Nordisk</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education / Certifications -->
+    <section id="education" class="mt-24 mb-16 fade-in">
+      <h3 class="section-title text-3xl font-bold text-center mb-10">Education &amp; Certifications</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div class="bg-white p-8 rounded-2xl shadow-lg">
+          <h4 class="text-xl font-bold text-center mb-4">Education</h4>
+          <div class="mb-4">
+            <p class="font-bold">MSc. Information Studies</p>
+            <p>Aalborg University, Copenhagen</p>
+            <p class="text-sm text-gray-500">2022</p>
+          </div>
+          <div>
+            <p class="font-bold">PBA Business, Economics and IT</p>
+            <p>Copenhagen School of Design and Technology (KEA)</p>
+            <p class="text-sm text-gray-500">2020</p>
+          </div>
+        </div>
+        <div class="bg-white p-8 rounded-2xl shadow-lg">
+          <h4 class="text-xl font-bold text-center mb-4">Certifications</h4>
+          <ul class="list-disc pl-5 space-y-2">
+            <li>PRINCE2 Foundation</li>
+            <li>DCAM v2 (Data Management Capability Assessment Model)</li>
+            <li>SAFe 6 Agilist</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-10 border-t">
+      <p class="text-gray-500 mb-4">Let’s connect — exploring opportunities in AI-enabled strategy and digital transformation.</p>
+      <div class="flex justify-center space-x-6">
+        <a href="https://www.linkedin.com/in/ameliakovalenko/" target="_blank" class="text-gray-600 hover:text-[var(--color-primary)]" aria-label="LinkedIn">
+          <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+        </a>
+        <a href="mailto:amelia.kovalenko@gmail.com" class="text-gray-600 hover:text-[var(--color-primary)]" aria-label="Email">
+          <i class="fas fa-envelope fa-2x" aria-hidden="true"></i>
+        </a>
+        <a href="tel:+4591433949" class="text-gray-600 hover:text-[var(--color-primary)]" aria-label="Phone">
+          <i class="fas fa-phone-square fa-2x" aria-hidden="true"></i>
+        </a>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Accordion JS -->
+  <script>
+    // Helper to collapse all contents in a given container
+    function collapseAll(container) {
+      container.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = null);
+      container.querySelectorAll('.rotatable').forEach(i => i.style.transform = 'rotate(0deg)');
+    }
+
+    // Bind toggles for a section container
+    function bindAccordions(container) {
+      const headers = container.querySelectorAll('.accordion-header, .timeline-header');
+      headers.forEach(header => {
+        header.addEventListener('click', () => {
+          const content = header.parentElement.nextElementSibling?.classList.contains('accordion-content')
+            ? header.parentElement.nextElementSibling
+            : header.nextElementSibling;
+          const icon = header.querySelector('.rotatable');
+
+          const currentlyOpen = content && content.style.maxHeight && content.style.maxHeight !== '0px';
+          collapseAll(container);
+          if (!currentlyOpen && content) {
+            content.style.maxHeight = content.scrollHeight + 'px';
+            if (icon) icon.style.transform = 'rotate(-180deg)';
+          }
+        });
+      });
+    }
+
+    // Attach to timeline + projects
+    const timeline = document.querySelector('#timeline');
+    const projects = document.querySelector('#projects');
+    if (timeline) bindAccordions(timeline);
+    if (projects) bindAccordions(projects);
+
+    // Open Novo Nordisk by default
+    (function openNovoByDefault() {
+      const firstItem = document.querySelector('#timeline .timeline-item');
+      if (!firstItem) return;
+      const header = firstItem.querySelector('.timeline-header');
+      const content = firstItem.querySelector('.accordion-content');
+      const icon = firstItem.querySelector('.rotatable');
+      if (content) {
+        content.style.maxHeight = content.scrollHeight + 'px';
+        if (icon) icon.style.transform = 'rotate(-180deg)';
+      }
+    })();
+
+    // Recompute maxHeight on resize for open items
+    window.addEventListener('resize', () => {
+      document.querySelectorAll('.accordion-content').forEach(c => {
+        if (c.style.maxHeight && c.style.maxHeight !== '0px') {
+          c.style.maxHeight = c.scrollHeight + 'px';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
