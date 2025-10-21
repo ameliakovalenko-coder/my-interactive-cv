@@ -366,71 +366,131 @@
 
 
 
-    <!-- Projects -->
-    <section id="projects" class="mt-24 mb-24 fade-in">
-      <h3 class="section-title text-3xl font-bold text-center mb-10">Project Portfolio</h3>
+<!-- Project Portfolio -->
+<section id="projects" class="mt-24 mb-24 fade-in">
+  <h3 class="section-title text-3xl font-bold text-center mb-10">Project Portfolio</h3>
 
-      <div class="space-y-6 max-w-4xl mx-auto">
+  <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
 
-        <!-- GenAI Hackathon (accordion) -->
-        <div class="bg-white rounded-xl shadow-lg border">
-          <div class="accordion-header p-5 flex justify-between items-center cursor-pointer hover-card">
-            <h4 class="text-xl font-bold color-primary">Nordic GenAI Hackathon &amp; Use Case Library – EY</h4>
-            <svg class="w-6 h-6 color-primary rotatable" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </div>
-          <div class="accordion-content">
-            <p class="p-5 border-t italic">Co-organized the first Nordic event connecting business and tech to shape GenAI solutions. Built a central use-case library, prioritized initiatives, and captured best practices across FSO.</p>
-            <div class="p-5 pt-0">
-              🎥 <a href="https://www.linkedin.com/feed/update/urn:li:activity:7251626031080439808/" target="_blank" class="text-sky-600 hover:underline">Watch highlight video on LinkedIn</a>
-            </div>
-          </div>
-        </div>
+    <!-- Novo Nordisk -->
+    <div class="relative group bg-white p-6 rounded-2xl shadow-md hover-card overflow-hidden">
+      <h4 class="text-lg font-bold text-[var(--color-primary)] mb-2">
+        AI Platform Strategy – Novo Nordisk
+      </h4>
+      <p class="text-gray-700 text-sm leading-relaxed">
+        Led pilot efforts for an <strong>AI-enabled collaboration and planning platform</strong> for External Supply,
+        aligning <strong>20+ business, IT, and sourcing stakeholders</strong> through RFP, evaluation, and design.
+        Organized <strong>two international supplier bootcamps</strong> in Copenhagen to drive adoption and co-creation.
+      </p>
+      <p class="text-gray-600 text-xs mt-2 italic">
+        → 40% faster batch release · Double-digit cost savings · KPI visibility across supply chain
+      </p>
 
-        <!-- External Supply Digital Platform -->
-        <div class="bg-white rounded-xl shadow-lg border">
-          <div class="accordion-header p-5 flex justify-between items-center cursor-pointer hover-card">
-            <h4 class="text-xl font-bold color-primary">External Supply Digital Platform – Novo Nordisk</h4>
-            <svg class="w-6 h-6 color-primary rotatable" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </div>
-          <div class="accordion-content">
-            <p class="p-5 border-t italic">Vendor alignment and pilot structure delivering &gt;40% faster batch releases and double-digit subscription savings.</p>
-          </div>
-        </div>
-
-        <!-- Digital Nudging -->
-        <div class="bg-white rounded-xl shadow-lg border">
-          <div class="accordion-header p-5 flex justify-between items-center cursor-pointer hover-card">
-            <h4 class="text-xl font-bold color-primary">Digital Nudging Mobile Solution – Danske Bank</h4>
-            <svg class="w-6 h-6 color-primary rotatable" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </div>
-          <div class="accordion-content">
-            <p class="p-5 border-t italic">Improved customer satisfaction to 4.5/5 and reduced advisor workload by 20% in the mobile banking journey.</p>
-          </div>
-        </div>
-
-        <!-- Remediation Programmes -->
-        <div class="bg-white rounded-xl shadow-lg border">
-          <div class="accordion-header p-5 flex justify-between items-center cursor-pointer hover-card">
-            <h4 class="text-xl font-bold color-primary">Remediation Programmes – EY</h4>
-            <svg class="w-6 h-6 color-primary rotatable" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </div>
-          <div class="accordion-content">
-            <p class="p-5 border-t italic">Remediated initiatives across collections, early-warning, default definitions, and forbearance; delivered executive recommendations for targeted remediation.</p>
-          </div>
-        </div>
-
-        <!-- Data Strategy & Customer Maturity -->
-        <div class="bg-white rounded-xl shadow-lg border">
-          <div class="accordion-header p-5 flex justify-between items-center cursor-pointer hover-card">
-            <h4 class="text-xl font-bold color-primary">Data Strategy &amp; Customer Maturity – EY</h4>
-            <svg class="w-6 h-6 color-primary rotatable" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </div>
-          <div class="accordion-content">
-            <p class="p-5 border-t italic">Assessed customer data maturity for a Nordic insurer, benchmarked competitors, and proposed actionable initiatives for data-driven decision-making.</p>
-          </div>
-        </div>
+      <!-- Hover overlay -->
+      <div class="absolute inset-0 bg-sky-600/90 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+        <p class="text-center px-6 text-sm leading-relaxed">
+          Co-created an AI platform to enhance visibility, planning, and collaboration across global suppliers.
+        </p>
       </div>
-    </section>
+    </div>
+
+    <!-- GenAI Hackathon -->
+    <div class="relative group bg-white p-6 rounded-2xl shadow-md hover-card overflow-hidden">
+      <h4 class="text-lg font-bold text-[var(--color-primary)] mb-2">
+        GenAI Enablement & Hackathon – EY
+      </h4>
+      <p class="text-gray-700 text-sm leading-relaxed">
+        Co-led EY’s first Nordic <strong>GenAI Hackathon</strong> in partnership with <strong>Danske Bank</strong> and
+        <strong>Region Sjælland</strong>. Brought together <strong>36 participants</strong> across business and IT to
+        develop <strong>4 client-ready use cases</strong> and build a foundation for GenAI innovation in the Nordics.
+      </p>
+      <p class="text-gray-600 text-xs mt-2 italic">
+        → Strengthened GenAI awareness · Accelerated innovation readiness across Nordic financial sector
+      </p>
+
+      <!-- Hover overlay -->
+      <div class="absolute inset-0 bg-sky-600/90 text-white flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+        <p class="text-center px-6 text-sm leading-relaxed mb-3">
+          Nordic GenAI initiative connecting banking, healthcare, and innovation ecosystems.
+        </p>
+        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7123152477042210816/"
+           target="_blank"
+           class="text-sm font-semibold underline hover:text-gray-200">
+           ▶ Watch highlight reel
+        </a>
+      </div>
+    </div>
+
+    <!-- Data Strategy -->
+    <div class="relative group bg-white p-6 rounded-2xl shadow-md hover-card overflow-hidden">
+      <h4 class="text-lg font-bold text-[var(--color-primary)] mb-2">
+        Data Strategy & KPI Framework – EY
+      </h4>
+      <p class="text-gray-700 text-sm leading-relaxed">
+        Directed a <strong>data strategy and KPI framework assessment</strong> for a Nordic insurer,
+        supporting the client’s ambition to become a regional leader in <strong>Data & Analytics</strong>.
+        Defined a roadmap to <strong>build a strong foundation for an impactful data strategy</strong> based on maturity,
+        governance, and management practices.
+      </p>
+      <p class="text-gray-600 text-xs mt-2 italic">
+        → Enabled data-driven growth · Strengthened leadership in analytics and strategic decision-making
+      </p>
+
+      <!-- Hover overlay -->
+      <div class="absolute inset-0 bg-sky-600/90 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+        <p class="text-center px-6 text-sm leading-relaxed">
+          Built frameworks and maturity models anchoring a scalable and impactful data strategy.
+        </p>
+      </div>
+    </div>
+
+    <!-- Digital Nudging -->
+    <div class="relative group bg-white p-6 rounded-2xl shadow-md hover-card overflow-hidden">
+      <h4 class="text-lg font-bold text-[var(--color-primary)] mb-2">
+        Mobile Nudging & Behavioral Insights – Danske Bank
+      </h4>
+      <p class="text-gray-700 text-sm leading-relaxed">
+        Led a team of <strong>analysts, data scientists, and compliance specialists</strong> to design and launch
+        a <strong>mobile nudging solution</strong> rolled out in <strong>Sweden and Norway</strong> within Soft Collection.
+        Improved personalization and communication flows across debt management operations.
+      </p>
+      <p class="text-gray-600 text-xs mt-2 italic">
+        → CSAT 4.5/5 · 20% faster case handling · Improved data visibility and communication quality
+      </p>
+
+      <!-- Hover overlay -->
+      <div class="absolute inset-0 bg-sky-600/90 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+        <p class="text-center px-6 text-sm leading-relaxed">
+          Led cross-country teams to enhance digital engagement and repayment journeys in the Nordics.
+        </p>
+      </div>
+    </div>
+
+    <!-- Remediation Programmes -->
+    <div class="relative group bg-white p-6 rounded-2xl shadow-md hover-card md:col-span-2 overflow-hidden">
+      <h4 class="text-lg font-bold text-[var(--color-primary)] mb-2">
+        Remediation Programmes – EY
+      </h4>
+      <p class="text-gray-700 text-sm leading-relaxed">
+        Executed <strong>remediation programmes</strong> across <strong>Personal Banking, Corporate Banking,</strong>
+        and <strong>Leasing</strong>. Delivered <strong>executive reporting, analysis,</strong> and
+        <strong>remediation strategies</strong> aligned with regulatory expectations, bank processes, and communications.
+      </p>
+      <p class="text-gray-600 text-xs mt-2 italic">
+        → Strengthened compliance alignment · Improved remediation tracking and strategic oversight
+      </p>
+
+      <!-- Hover overlay -->
+      <div class="absolute inset-0 bg-sky-600/90 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+        <p class="text-center px-6 text-sm leading-relaxed">
+          Delivered executive insights supporting data-driven, compliant remediation across banking portfolios.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
     <!-- Recognition (4 quotes) -->
     <section id="recognition" class="mt-24 mb-24 fade-in">
