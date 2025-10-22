@@ -40,11 +40,42 @@
     @keyframes fadeIn { from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);} }
     .fade-in { opacity:0; animation: fadeIn .8s ease .05s forwards; }
 
-    /* Timeline layout */
-    .timeline-wrapper { position:relative; padding-left:2.5rem; }
-    .timeline-rail { position:absolute; left:1rem; top:0; bottom:0; width:2px; background:rgba(0,62,107,.25); }
-    .tl-item { position:relative; }
-    .tl-dot { position:absolute; left:0.5rem; top:1.25rem; width:1rem; height:1rem; background:var(--color-primary); border:3px solid #f3f4f6; border-radius:9999px; z-index:2; }
+   /* Timeline layout — FIXED OFFSET */
+.timeline-wrapper {
+  position: relative;
+  padding-left: 3.5rem; /* more space between line and text */
+}
+
+.timeline-rail {
+  position: absolute;
+  left: 1.25rem; /* keep line near left margin */
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(0, 62, 107, 0.25);
+}
+
+.tl-item {
+  position: relative;
+  margin-left: 0; /* align card text to right of line */
+}
+
+.tl-dot {
+  position: absolute;
+  left: 0.75rem; /* positions dot in center of rail */
+  top: 1.4rem;
+  width: 0.9rem;
+  height: 0.9rem;
+  background: var(--color-primary);
+  border: 3px solid #f3f4f6;
+  border-radius: 9999px;
+  z-index: 2;
+}
+
+.timeline-header {
+  margin-left: 1.5rem; /* moves card text away from dots */
+}
+z-index:2; }
 
     /* Accordion */
     .accordion-content { overflow:hidden; max-height:0; opacity:0; transition:max-height .35s ease, opacity .35s ease; }
