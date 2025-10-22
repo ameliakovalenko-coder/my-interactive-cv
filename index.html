@@ -40,15 +40,15 @@
     @keyframes fadeIn { from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);} }
     .fade-in { opacity:0; animation: fadeIn .8s ease .05s forwards; }
 
-   /* Timeline layout — FIXED OFFSET */
+   /* Timeline layout — dots centered on line and aligned */
 .timeline-wrapper {
   position: relative;
-  padding-left: 3.5rem; /* more space between line and text */
+  padding-left: 3.75rem; /* ensures spacing between line and text */
 }
 
 .timeline-rail {
   position: absolute;
-  left: 1.25rem; /* keep line near left margin */
+  left: 2rem; /* timeline line position */
   top: 0;
   bottom: 0;
   width: 2px;
@@ -57,30 +57,59 @@
 
 .tl-item {
   position: relative;
-  margin-left: 0; /* align card text to right of line */
 }
 
 .tl-dot {
   position: absolute;
-  left: 0.75rem; /* positions dot in center of rail */
-  top: 1.4rem;
-  width: 0.9rem;
-  height: 0.9rem;
+  left: 1.6rem; /* centers dot exactly over line */
+  top: 1.5rem;
+  width: 1rem;
+  height: 1rem;
   background: var(--color-primary);
   border: 3px solid #f3f4f6;
   border-radius: 9999px;
-  z-index: 2;
+  z-index: 3;
 }
 
 .timeline-header {
-  margin-left: 1.5rem; /* moves card text away from dots */
+  position: relative;
+  margin-left: 2.75rem; /* creates clean space between dot and card */
+  cursor: pointer;
+  transition: background 0.25s ease, box-shadow 0.25s ease;
 }
-z-index:2; }
 
-    /* Accordion */
-    .accordion-content { overflow:hidden; max-height:0; opacity:0; transition:max-height .35s ease, opacity .35s ease; }
-    .accordion-content.open { opacity:1; max-height:1200px; }
-    .rotatable { transition: transform .25s ease; }
+.timeline-header:hover {
+  background: #f8fafc;
+}
+
+// Accordion toggle - open/close properly
+function toggleAccordion(headerEl) {
+  const content = headerEl.nextElementSibling;
+  const icon = headerEl.querySelector('.rotatable');
+
+  // close all others first
+  const allContents = document.querySelectorAll('#timeline .accordion-content');
+  const allIcons = document.querySelectorAll('#timeline .rotatable');
+  const isOpen = content.classList.contains('open');
+
+  allContents.forEach(c => c.classList.remove('open'));
+  allIcons.forEach(i => i.style.transform = 'rotate(0deg)');
+
+  // open this one if it was closed
+  if (!isOpen) {
+    content.classList.add('open');
+    if (icon) icon.style.transform = 'rotate(-180deg)';
+  }
+}
+
+// auto-open first item on load
+window.addEventListener('load', () => {
+  const first = document.querySelector('#timeline .accordion-content');
+  const icon  = document.querySelector('#timeline .rotatable');
+  if (first) first.classList.add('open');
+  if (icon)  icon.style.transform = 'rotate(-180deg)';
+});
+
 
     /* Skill tooltips */
     .hint { position:absolute; left:0; top:-28px; background:rgba(17,24,39,.92); color:#fff;
