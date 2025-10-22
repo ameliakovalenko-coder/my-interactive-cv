@@ -10,50 +10,61 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <style>
     :root, [data-theme-active="default"] {
-      --color-primary: #003E6B;
-      --color-accent: #36A8A4;
+      --color-primary: #003E6B; /* deep blue */
+      --color-accent:  #36A8A4; /* teal */
       --color-accent-light: #E6F7F7;
-      --expert: #5B9BD5;
-      --advanced: #A7C7E7;
+      --expert:     #5B9BD5;
+      --advanced:   #A7C7E7;
       --proficient: #CFE9FF;
     }
 
     body { font-family: 'Poppins', sans-serif; color:#1f2937; background:#f3f4f6; }
+
+    /* Top nav */
     .top-nav { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.98); backdrop-filter: blur(8px); border-bottom: 1px solid #e5e7eb; }
     .top-nav a { color:#0f172a; font-weight:600; padding:8px 0; border-bottom:2px solid transparent; }
     .top-nav a:hover { color: var(--color-primary); }
     .top-nav a.active { color: var(--color-primary); border-bottom-color: var(--color-accent); }
 
+    /* Section titles with left accent */
     .section-title { color: var(--color-primary); font-weight:800; position:relative; display:inline-block; padding-left:.65rem; }
-    .section-title::before { content:""; position:absolute; left:0; top:.35rem; bottom:.35rem; width:4px;
-      background:linear-gradient(180deg,var(--color-primary),var(--color-accent)); border-radius:9999px; }
+    .section-title::before {
+      content:""; position:absolute; left:0; top:.35rem; bottom:.35rem; width:4px;
+      background:linear-gradient(180deg,var(--color-primary),var(--color-accent)); border-radius:9999px;
+    }
 
+    /* Slimmer header */
     header { padding-top: 2rem; padding-bottom: 2rem; }
+
+    /* Fade-in */
     @keyframes fadeIn { from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);} }
     .fade-in { opacity:0; animation: fadeIn .8s ease .05s forwards; }
 
-    /* Timeline */
-    .timeline-wrapper { position:relative; padding-left:2rem; }
-    .timeline-rail { position:absolute; left:0.85rem; top:0; bottom:0; width:2px; background:rgba(0,62,107,.25); }
-    .timeline-dot { position:absolute; left:0.35rem; width:1rem; height:1rem; background:var(--color-primary);
-      border:3px solid #f3f4f6; border-radius:9999px; top:1.5rem; z-index:5; }
+    /* Timeline layout */
+    .timeline-wrapper { position:relative; padding-left:2.5rem; }
+    .timeline-rail { position:absolute; left:1rem; top:0; bottom:0; width:2px; background:rgba(0,62,107,.25); }
+    .tl-item { position:relative; }
+    .tl-dot { position:absolute; left:0.5rem; top:1.25rem; width:1rem; height:1rem; background:var(--color-primary); border:3px solid #f3f4f6; border-radius:9999px; z-index:2; }
 
+    /* Accordion */
     .accordion-content { overflow:hidden; max-height:0; opacity:0; transition:max-height .35s ease, opacity .35s ease; }
-    .accordion-content.open { opacity:1; max-height:1000px; }
-    .rotatable { transition:transform .25s ease; }
+    .accordion-content.open { opacity:1; max-height:1200px; }
+    .rotatable { transition: transform .25s ease; }
 
+    /* Skill tooltips */
     .hint { position:absolute; left:0; top:-28px; background:rgba(17,24,39,.92); color:#fff;
       font-size:12px; padding:6px 10px; border-radius:6px; opacity:0; transform:translateY(6px);
       transition:opacity .2s ease,transform .2s ease; pointer-events:none; white-space:nowrap; }
     .group:hover .hint { opacity:1; transform:translateY(0); }
 
+    /* Card hover */
     .hover-card:hover { background:#f8fafc; }
   </style>
 </head>
 
 <body>
 
-  <!-- Navigation -->
+  <!-- Top Navigation -->
   <div class="top-nav">
     <div class="max-w-7xl mx-auto px-6 py-3 flex justify-center gap-6 text-sm">
       <a href="#summary" id="nav-summary">Summary</a>
@@ -69,8 +80,12 @@
 
     <!-- Header -->
     <header class="text-center">
-      <h1 class="text-5xl md:text-6xl font-black tracking-tighter bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-accent)] text-transparent bg-clip-text pb-1">Ameliia Kovalenko</h1>
-      <h2 class="mt-1 text-base md:text-xl font-medium text-gray-600 tracking-wide">Strategy & Execution | Enabling Digital (GenAI) Transformation & Data-Driven Growth | Ex-EY, Danske Bank</h2>
+      <h1 class="text-5xl md:text-6xl font-black tracking-tighter bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-accent)] text-transparent bg-clip-text pb-1">
+        Ameliia Kovalenko
+      </h1>
+      <h2 class="mt-1 text-base md:text-xl font-medium text-gray-600 tracking-wide">
+        Strategy &amp; Execution | Enabling Digital (GenAI) Transformation &amp; Data-Driven Growth | Ex-EY, Danske Bank
+      </h2>
       <div class="mt-4 flex justify-center gap-4">
         <a href="mailto:amelia.kovalenko@gmail.com" class="px-6 py-2 rounded-full bg-[var(--color-primary)] text-white shadow hover:bg-[var(--color-accent)] transition">Contact Me</a>
         <a href="https://www.linkedin.com/in/ameliakovalenko/" target="_blank" class="px-6 py-2 rounded-full border border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-accent-light)] transition">LinkedIn</a>
@@ -83,21 +98,22 @@
       <div class="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-xl">
         <p class="text-lg"><strong>I help organizations turn strategy into execution and data into decisions.</strong></p>
         <p class="mt-4">With experience across <strong>banking, consulting, and life sciences</strong>, I deliver <strong>digital transformation</strong>, <strong>GenAI-enabled change</strong>, and <strong>process improvement</strong> with measurable impact.</p>
-        <p class="mt-4">I bridge <strong>business strategy, data, and delivery</strong>—combining <strong>business analysis</strong>, <strong>PMO & governance</strong>, and <strong>stakeholder management</strong>—to align executive vision with operational results.</p>
+        <p class="mt-4">I bridge <strong>business strategy, data, and delivery</strong>—combining <strong>business analysis</strong>, <strong>PMO &amp; governance</strong>, and <strong>stakeholder management</strong>—to align executive vision with operational results.</p>
         <p class="mt-4">Known for <strong>clarity, structure, collaboration, and empathy</strong>, I help teams scale customer-centric solutions across complex environments.</p>
-        <p class="mt-6 text-base text-gray-600 italic">🎯 <strong>Focus areas:</strong> Strategy Execution · Business Analysis · Digital & GenAI Transformation · PMO & Governance · Data-Driven Decision Support · Process Optimization · Stakeholder Management</p>
+        <p class="mt-6 text-base text-gray-600 italic">🎯 <strong>Focus areas:</strong> Strategy Execution · Business Analysis · Digital &amp; GenAI Transformation · PMO &amp; Governance · Data-Driven Decision Support · Process Optimization · Stakeholder Management</p>
       </div>
     </section>
 
     <!-- Experience Timeline -->
     <section id="timeline" class="mt-10 mb-24 fade-in">
       <h3 class="section-title text-3xl mb-6">Career Timeline</h3>
+
       <div class="timeline-wrapper max-w-3xl mx-auto space-y-8">
         <div class="timeline-rail"></div>
 
-        <!-- Novo Nordisk -->
-        <div class="relative">
-          <div class="timeline-dot"></div>
+        <!-- Novo -->
+        <div class="tl-item">
+          <div class="tl-dot"></div>
           <div class="timeline-header cursor-pointer p-4 rounded-lg bg-white shadow-md hover:shadow-lg transition" onclick="toggleAccordion(this)">
             <div class="flex justify-between items-center">
               <div>
@@ -119,8 +135,8 @@
         </div>
 
         <!-- EY -->
-        <div class="relative">
-          <div class="timeline-dot"></div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
           <div class="timeline-header cursor-pointer p-4 rounded-lg bg-white shadow-md hover:shadow-lg transition" onclick="toggleAccordion(this)">
             <div class="flex justify-between items-center">
               <div>
@@ -142,9 +158,9 @@
           </div>
         </div>
 
-        <!-- Danske Bank -->
-        <div class="relative">
-          <div class="timeline-dot"></div>
+        <!-- Danske -->
+        <div class="tl-item">
+          <div class="tl-dot"></div>
           <div class="timeline-header cursor-pointer p-4 rounded-lg bg-white shadow-md hover:shadow-lg transition" onclick="toggleAccordion(this)">
             <div class="flex justify-between items-center">
               <div>
@@ -167,8 +183,8 @@
         </div>
 
         <!-- Telia -->
-        <div class="relative">
-          <div class="timeline-dot"></div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
           <div class="timeline-header cursor-pointer p-4 rounded-lg bg-white shadow-md hover:shadow-lg transition" onclick="toggleAccordion(this)">
             <div class="flex justify-between items-center">
               <div>
@@ -188,6 +204,7 @@
             </div>
           </div>
         </div>
+
       </div>
     </section>
 
@@ -196,30 +213,143 @@
       <h3 class="section-title text-3xl mb-6">Core Skills</h3>
       <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-10">
 
-        <!-- Leadership -->
+        <!-- Leadership & Soft Skills -->
         <div class="bg-white p-6 rounded-2xl shadow-md">
           <h4 class="text-xl font-semibold mb-6 text-[var(--color-primary)]">Leadership & Soft Skills</h4>
+
           <div class="mb-4 group relative">
             <div class="flex justify-between text-sm font-semibold text-gray-700 mb-1"><span>Stakeholder Management</span><span>Expert</span></div>
             <div class="w-full bg-gray-200 rounded-full h-2.5"><div class="h-2.5 rounded-full" style="width:100%;background:var(--expert);"></div></div>
             <div class="hint">Aligned 20+ stakeholders during RFP and rollout at Novo Nordisk.</div>
           </div>
+
           <div class="mb-4 group relative">
             <div class="flex justify-between text-sm font-semibold text-gray-700 mb-1"><span>Strategic Planning & Delivery</span><span>Advanced</span></div>
             <div class="w-full bg-gray-200 rounded-full h-2.5"><div class="h-2.5 rounded-full" style="width:85%;background:var(--advanced);"></div></div>
             <div class="hint">Defined transformation roadmaps for Nordic clients at EY.</div>
           </div>
+
+          <div class="mb-4 group relative">
+            <div class="flex justify-between text-sm font-semibold text-gray-700 mb-1"><span>Executive Communication</span><span>Advanced</span></div>
+            <div class="w-full bg-gray-200 rounded-full h-2.5"><div class="h-2.5 rounded-full" style="width:85%;background:var(--advanced);"></div></div>
+            <div class="hint">SteerCo ROI insights for SVP/VP at Novo & Danske Bank.</div>
+          </div>
+
+          <div class="group relative">
+            <div class="flex justify-between text-sm font-semibold text-gray-700 mb-1"><span>Change Leadership</span><span>Proficient</span></div>
+            <div class="w-full bg-gray-200 rounded-full h-2.5"><div class="h-2.5 rounded-full" style="width:70%;background:var(--proficient);"></div></div>
+            <div class="hint">Adoption of new digital workflows across 3 countries (Danske).</div>
+          </div>
         </div>
 
-        <!-- Technical -->
+        <!-- Technical & Tools -->
         <div class="bg-white p-6 rounded-2xl shadow-md">
           <h4 class="text-xl font-semibold mb-6 text-[var(--color-primary)]">Technical & Tools</h4>
+
           <div class="mb-4 group relative">
             <div class="flex justify-between text-sm font-semibold text-gray-700 mb-1"><span>AI &amp; GenAI Strategy</span><span>Advanced</span></div>
             <div class="w-full bg-gray-200 rounded-full h-2.5"><div class="h-2.5 rounded-full" style="width:85%;background:var(--advanced);"></div></div>
-            <div class="hint">Led GenAI Hackathon (36 participants, 4 use cases).</div>
+            <div class="hint">GenAI Hackathon (36 participants, 4 use cases) at EY.</div>
+          </div>
+
+          <div class="mb-4 group relative">
+            <div class="flex justify-between text-sm font-semibold text-gray-700 mb-1"><span>Digital Transformation</span><span>Advanced</span></div>
+            <div class="w-full bg-gray-200 rounded-full h-2.5"><div class="h-2.5 rounded-full" style="width:85%;background:var(--advanced);"></div></div>
+            <div class="hint">AI-enabled platform reducing lead time by 40% at Novo.</div>
+          </div>
+
+          <div class="mb-4 group relative">
+            <div class="flex justify-between text-sm font-semibold text-gray-700 mb-1"><span>Program Management (Prince2, Agile)</span><span>Proficient</span></div>
+            <div class="w-full bg-gray-200 rounded-full h-2.5"><div class="h-2.5 rounded-full" style="width:70%;background:var(--proficient);"></div></div>
+            <div class="hint">Coordinated Agile delivery (EY & Danske).</div>
+          </div>
+
+          <div class="group relative">
+            <div class="flex justify-between text-sm font-semibold text-gray-700 mb-1"><span>Process Design &amp; Optimization</span><span>Advanced</span></div>
+            <div class="w-full bg-gray-200 rounded-full h-2.5"><div class="h-2.5 rounded-full" style="width:85%;background:var(--advanced);"></div></div>
+            <div class="hint">KYC/onboarding redesign; 20% faster lead time (Danske).</div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="mt-6 mb-24 fade-in">
+      <h3 class="section-title text-3xl mb-6">Project Portfolio</h3>
+      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+
+        <!-- Novo Platform -->
+        <div class="relative group bg-white p-6 rounded-2xl shadow-md hover-card overflow-hidden">
+          <h4 class="text-lg font-bold text-[var(--color-primary)] mb-2">AI Platform Strategy – Novo Nordisk</h4>
+          <p class="text-gray-700 text-sm leading-relaxed">
+            Led pilot efforts for an <strong>AI-enabled collaboration and planning platform</strong> for External Supply,
+            aligning <strong>20+ business, IT, and sourcing stakeholders</strong> through RFP, evaluation, and design.
+            Organized <strong>two international supplier bootcamps</strong> in Copenhagen to drive adoption and co-creation.
+          </p>
+          <p class="text-gray-600 text-xs mt-2 italic">→ 40% faster batch release · Double-digit cost savings · KPI visibility</p>
+          <div class="absolute inset-0 bg-sky-600/90 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+            <p class="px-6 text-sm text-center">Co-created an AI platform to enhance visibility, planning, and collaboration across global suppliers.</p>
+          </div>
+        </div>
+
+        <!-- GenAI Hackathon (updated link) -->
+        <div class="relative group bg-white p-6 rounded-2xl shadow-md hover-card overflow-hidden">
+          <h4 class="text-lg font-bold text-[var(--color-primary)] mb-2">GenAI Enablement & Hackathon – EY</h4>
+          <p class="text-gray-700 text-sm leading-relaxed">
+            Co-led EY’s first Nordic <strong>GenAI Hackathon</strong> in partnership with <strong>Danske Bank</strong> and
+            <strong>Region Sjælland</strong>. Brought together <strong>36 participants</strong> across business and IT to
+            develop <strong>4 client-ready use cases</strong> and build a foundation for GenAI innovation in the Nordics.
+          </p>
+          <p class="text-gray-600 text-xs mt-2 italic">→ Strengthened GenAI awareness · Accelerated innovation readiness</p>
+          <div class="absolute inset-0 bg-sky-600/90 text-white flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+            <p class="px-6 text-sm text-center mb-2">Connecting banking, healthcare, and innovation ecosystems.</p>
+            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7251626031080439808/" target="_blank" class="underline text-white text-sm font-semibold">▶ Watch highlight reel</a>
+          </div>
+        </div>
+
+        <!-- Data Strategy -->
+        <div class="relative group bg-white p-6 rounded-2xl shadow-md hover-card overflow-hidden">
+          <h4 class="text-lg font-bold text-[var(--color-primary)] mb-2">Data Strategy & KPI Framework – EY</h4>
+          <p class="text-gray-700 text-sm leading-relaxed">
+            Directed a <strong>data strategy and KPI framework assessment</strong> for a Nordic insurer,
+            supporting the ambition to become a regional leader in <strong>Data & Analytics</strong>.
+            Defined a roadmap to <strong>build a strong foundation for an impactful data strategy</strong> based on maturity,
+            governance, and management practices.
+          </p>
+          <p class="text-gray-600 text-xs mt-2 italic">→ Enabled data-driven growth · Strengthened analytics leadership</p>
+          <div class="absolute inset-0 bg-sky-600/90 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+            <p class="px-6 text-sm text-center">Built KPI frameworks & maturity models anchored in business goals.</p>
+          </div>
+        </div>
+
+        <!-- Mobile Nudging -->
+        <div class="relative group bg-white p-6 rounded-2xl shadow-md hover-card overflow-hidden">
+          <h4 class="text-lg font-bold text-[var(--color-primary)] mb-2">Mobile Nudging & Behavioral Insights – Danske Bank</h4>
+          <p class="text-gray-700 text-sm leading-relaxed">
+            Led a team of <strong>analysts, data scientists, and compliance specialists</strong> to design and launch
+            a <strong>mobile nudging solution</strong> rolled out in <strong>Sweden and Norway</strong> within Soft Collection.
+            Improved personalization and communication flows across debt management operations.
+          </p>
+          <p class="text-gray-600 text-xs mt-2 italic">→ CSAT 4.5/5 · 20% faster case handling · Improved comms quality</p>
+          <div class="absolute inset-0 bg-sky-600/90 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+            <p class="px-6 text-sm text-center">Enhanced digital engagement & repayment journeys across Nordic markets.</p>
+          </div>
+        </div>
+
+        <!-- Remediation -->
+        <div class="relative group bg-white p-6 rounded-2xl shadow-md hover-card md:col-span-2 overflow-hidden">
+          <h4 class="text-lg font-bold text-[var(--color-primary)] mb-2">Remediation Programmes – EY</h4>
+          <p class="text-gray-700 text-sm leading-relaxed">
+            Executed <strong>remediation programmes</strong> across <strong>Personal Banking, Corporate Banking,</strong> and <strong>Leasing</strong>.
+            Delivered <strong>executive reporting, analysis,</strong> and <strong>remediation strategies</strong> aligned with regulatory expectations,
+            bank processes, and communications.
+          </p>
+          <p class="text-gray-600 text-xs mt-2 italic">→ Strengthened compliance alignment · Improved oversight & tracking</p>
+          <div class="absolute inset-0 bg-sky-600/90 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+            <p class="px-6 text-sm text-center">Data-informed remediation with executive visibility across portfolios.</p>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -246,18 +376,22 @@
       </div>
     </section>
 
-    <!-- Education -->
+    <!-- Education & Certifications -->
     <section id="education" class="mt-6 mb-16 fade-in">
       <h3 class="section-title text-3xl mb-6">Education &amp; Certifications</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
         <div class="bg-white p-8 rounded-2xl shadow-lg">
           <h4 class="text-xl font-bold mb-4 text-[var(--color-primary)]">Education</h4>
-          <p class="font-bold">MSc. Information Studies</p>
-          <p>Aalborg University, Copenhagen</p>
-          <p class="text-sm text-gray-500 mb-4">2022</p>
-          <p class="font-bold">PBA Business, Economics and IT</p>
-          <p>Copenhagen School of Design and Technology (KEA)</p>
-          <p class="text-sm text-gray-500">2020</p>
+          <div class="mb-4">
+            <p class="font-bold">MSc. Information Studies</p>
+            <p>Aalborg University, Copenhagen</p>
+            <p class="text-sm text-gray-500">2022</p>
+          </div>
+          <div>
+            <p class="font-bold">PBA Business, Economics and IT</p>
+            <p>Copenhagen School of Design and Technology (KEA)</p>
+            <p class="text-sm text-gray-500">2020</p>
+          </div>
         </div>
         <div class="bg-white p-8 rounded-2xl shadow-lg">
           <h4 class="text-xl font-bold mb-4 text-[var(--color-primary)]">Certifications</h4>
@@ -274,35 +408,61 @@
     <footer class="text-center py-10 border-t">
       <p class="text-gray-500 mb-4">Let’s connect — exploring opportunities in strategy and digital transformation.</p>
       <div class="flex justify-center space-x-6">
-        <a href="https://www.linkedin.com/in/ameliakovalenko/" target="_blank" class="text-gray-600 hover:text-[var(--color-primary)]"><i class="fab fa-linkedin fa-2x"></i></a>
-        <a href="mailto:amelia.kovalenko@gmail.com" class="text-gray-600 hover:text-[var(--color-primary)]"><i class="fas fa-envelope fa-2x"></i></a>
-        <a href="tel:+4591433949" class="text-gray-600 hover:text-[var(--color-primary)]"><i class="fas fa-phone-square fa-2x"></i></a>
+        <a href="https://www.linkedin.com/in/ameliakovalenko/" target="_blank" class="text-gray-600 hover:text-[var(--color-primary)]" aria-label="LinkedIn"><i class="fab fa-linkedin fa-2x"></i></a>
+        <a href="mailto:amelia.kovalenko@gmail.com" class="text-gray-600 hover:text-[var(--color-primary)]" aria-label="Email"><i class="fas fa-envelope fa-2x"></i></a>
+        <a href="tel:+4591433949" class="text-gray-600 hover:text-[var(--color-primary)]" aria-label="Phone"><i class="fas fa-phone-square fa-2x"></i></a>
       </div>
     </footer>
 
   </div>
 
-  <!-- JS -->
+  <!-- JS: Accordion toggle + Active nav highlight -->
   <script>
+    // Toggle open/close per section (no auto-collapse unless you click another)
     function toggleAccordion(headerEl) {
       const content = headerEl.nextElementSibling;
       const icon = headerEl.querySelector('.rotatable');
-      const all = document.querySelectorAll('.accordion-content');
-      all.forEach(c => c.classList.remove('open'));
-      document.querySelectorAll('.rotatable').forEach(i => i.style.transform='rotate(0deg)');
-      if (!content.classList.contains('open')) {
+      const isOpen = content.classList.contains('open');
+      // Close all
+      document.querySelectorAll('#timeline .accordion-content').forEach(c => c.classList.remove('open'));
+      document.querySelectorAll('#timeline .rotatable').forEach(i => i.style.transform='rotate(0deg)');
+      // If it was closed, open it; if it was open, leave all closed
+      if (!isOpen) {
         content.classList.add('open');
-        icon.style.transform='rotate(-180deg)';
+        if (icon) icon.style.transform='rotate(-180deg)';
       }
     }
 
-    window.addEventListener('load',()=>{
-      const first=document.querySelector('#timeline .accordion-content');
-      const firstIcon=document.querySelector('#timeline .rotatable');
-      if(first)first.classList.add('open');
-      if(firstIcon)firstIcon.style.transform='rotate(-180deg)';
+    // Open first experience by default
+    window.addEventListener('load', () => {
+      const first = document.querySelector('#timeline .accordion-content');
+      const icon  = document.querySelector('#timeline .rotatable');
+      if (first) first.classList.add('open');
+      if (icon)  icon.style.transform = 'rotate(-180deg)';
     });
-  </script>
 
+    // Active section highlight
+    const map = {
+      summary:     document.getElementById('nav-summary'),
+      timeline:    document.getElementById('nav-timeline'),
+      skills:      document.getElementById('nav-skills'),
+      projects:    document.getElementById('nav-projects'),
+      recognition: document.getElementById('nav-recognition'),
+      education:   document.getElementById('nav-education'),
+    };
+    const sections = Object.keys(map).map(id => document.getElementById(id)).filter(Boolean);
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const id = entry.target.id;
+        if (entry.isIntersecting) {
+          Object.values(map).forEach(a => a.classList.remove('active'));
+          if (map[id]) map[id].classList.add('active');
+        }
+      });
+    }, { rootMargin: '-40% 0px -50% 0px', threshold: 0.01 });
+
+    sections.forEach(sec => observer.observe(sec));
+  </script>
 </body>
 </html>
